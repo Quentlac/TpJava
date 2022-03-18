@@ -9,6 +9,7 @@ public class TestString {
     public static void main(String[] args) {
         Scanner entree = new Scanner(System.in);
 
+        // Test git
         System.out.println("Donner une chaîne de caractères maChaine :");
         String maChaine = entree.nextLine();
 
