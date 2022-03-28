@@ -29,11 +29,12 @@ public class Carreau {
         GuerriersRouges.addAll(guerriers);
     }
 
-    public void retirerGuerriersBleus(ArrayList<Guerrier> guerriers) {
+    /**
+     * Enlève tout les guerriers spécifié du carreau
+     * @param guerriers liste des guerriers à supprimer
+     */
+    public void retirerGuerriers(ArrayList<Guerrier> guerriers) {
         GuerriersBleus.removeAll(guerriers);
-    }
-
-    public void retirerGuerriersRouges(ArrayList<Guerrier> guerriers) {
         GuerriersRouges.removeAll(guerriers);
     }
 

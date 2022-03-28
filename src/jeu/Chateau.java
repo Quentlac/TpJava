@@ -6,13 +6,16 @@ public class Chateau {
 
     public final int RESSOURCES_INITIAL = 3;
     public final int AJOUTEE_PAR_TOUR = 1;
+    private Plateau plateau;
 
     private int ressource;
     private ArrayList<Guerrier> guerriersNovices;
     private Couleur couleur;
 
-    public Chateau(Couleur couleur) {
+    public Chateau(Couleur couleur, Plateau plateau) {
         this.couleur = couleur;
+        this.plateau = plateau;
+        this.guerriersNovices = new ArrayList<>();
     }
 
     /**

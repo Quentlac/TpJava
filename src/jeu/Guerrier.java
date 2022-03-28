@@ -102,4 +102,9 @@ public abstract class Guerrier {
     public int getRessourcesPourEntrainement() {
         return RESSOURCE_BASE;
     }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() + "_" + chateau.getCouleur().getLibelle() + "[PV" + getPointDeVie() + "]";
+    }
 }
