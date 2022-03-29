@@ -5,6 +5,7 @@ package jeu;
  */
 public class Nain extends Guerrier{
 
+
     /**
      * Un nain subit 2x moins de dégats q'un guerrier
      * @param degats Nombre de dégats subits

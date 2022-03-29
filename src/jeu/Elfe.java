@@ -6,7 +6,6 @@ package jeu;
 public class Elfe extends Guerrier{
 
 
-
     /**
      * Un elfe a 2x plus de force qu'un guerrier
      * @return force de l'elfe

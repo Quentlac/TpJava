@@ -19,10 +19,14 @@ public class Chateau {
     }
 
     /**
-     * Ajout d'un guerrier
+     * Ajout d'un guerrier au chateau afin que celui ci puisse s'entraîner
      * @param guerrier
      */
     public void ajoutGuerrierNovice(Guerrier guerrier) {
+        // On modifie le chateau auquel appartient le guerrier
+        guerrier.setChateau(this);
+
+        // Puis on l'ajoute au chateau
         guerriersNovices.add(guerrier);
     }
 
@@ -38,13 +42,14 @@ public class Chateau {
         ArrayList<Guerrier> guerriersEntraines = new ArrayList<>();
         int i;
         for(i = 0; i < guerriersNovices.size() && ressource > 0; i++) {
-            if(ressource > guerriersNovices.get(i).getRessourcesPourEntrainement()) {
+            if(ressource >= guerriersNovices.get(i).getRessourcesPourEntrainement()) {
                 guerriersEntraines.add(guerriersNovices.get(i));
                 ressource -= guerriersNovices.get(i).getRessourcesPourEntrainement();
             }
         }
-        // On supprime les i premiers guerriers qu'on a entrainé
-        guerriersNovices = (ArrayList<Guerrier>) guerriersNovices.subList(i - 1, guerriersNovices.size());
+
+        // On supprime les guerriers qui ont été entraînés de la liste des novices
+        guerriersNovices.removeAll(guerriersEntraines);
 
         return guerriersEntraines;
     }
@@ -52,8 +57,12 @@ public class Chateau {
     /**
      * Permet d'incrémenter la ressource
      */
-    private void incrementerRessources() {
+    public void incrementerRessources() {
         ressource += 1;
+    }
+
+    public int getRessource() {
+        return ressource;
     }
 
     public Couleur getCouleur() {

@@ -7,7 +7,7 @@ public abstract class Guerrier {
 
     private final int FORCE_BASE = 10;
     private final int PV_MAX_BASE = 100;
-    private final int RESSOURCE_BASE = 1;
+    private final int RESSOURCE_BASE = 2;
 
     private int force;
     private int vie;
@@ -105,6 +105,7 @@ public abstract class Guerrier {
 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + "_" + chateau.getCouleur().getLibelle() + "[PV" + getPointDeVie() + "]";
+
+        return (this.chateau.estBleu() ? "\u001b[0;36m" : "\u001b[0;31m") + this.getClass().getSimpleName() + "_" + chateau.getCouleur().getLibelle() + "[PV " + getPointDeVie() + "]\u001b[0m";
     }
 }

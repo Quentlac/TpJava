@@ -28,9 +28,19 @@ public class Application {
         while (continuer) {
 
             CLI.afficheNTour(tour);
+            chateauRouge.incrementerRessources();
+            chateauBleu.incrementerRessources();
+
+            System.out.println("Ressource chateau bleu : " + chateauBleu.getRessource());
+            System.out.println("Ressource chateau rouge : " + chateauRouge.getRessource());
+            System.out.println();
 
             System.out.println("Unités construites dans ce tour :");
             ArrayList<Guerrier> guerriersEntraines = chateauBleu.entrainer();
+
+            if(guerriersEntraines.size() == 0) {
+                System.out.println("   Aucun guerrier entraîner lors de ce tour !");
+            }
 
             for(Guerrier g: guerriersEntraines) {
                 System.out.println("   GUERRIERS AU COMBAT : " + g);
