@@ -1,6 +1,9 @@
 package jeu;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class Carreau {
 
@@ -10,7 +13,8 @@ public class Carreau {
     private Couleur couleur;
 
     public Carreau() {
-
+        GuerriersBleus = new ArrayList<>();
+        GuerriersRouges = new ArrayList<>();
     }
 
     public ArrayList<Guerrier> getGuerriersBleus() {
@@ -66,18 +70,46 @@ public class Carreau {
 
         // Les bleus attaquent
         for(Guerrier g : GuerriersBleus) {
-            g.attaquer(GuerriersRouges.get(0));
-            // Si le guerrier est mort on le supprime de la liste
-            if(!GuerriersRouges.get(0).estVivant())
-                GuerriersRouges.remove(0);
+            // On regarde si il y a encore des guerriers ennemis à combatre
+            if(GuerriersRouges.size() > 0) {
+                g.attaquer(GuerriersRouges.get(0));
+                // Si le guerrier est mort on le supprime de la liste
+                if (!GuerriersRouges.get(0).estVivant())
+                    GuerriersRouges.remove(0);
+            }
         }
 
         // Les rouges attaquent
         for(Guerrier g : GuerriersRouges) {
-            g.attaquer(GuerriersBleus.get(0));
-            if(!GuerriersBleus.get(0).estVivant())
-                GuerriersBleus.remove(0);
+            if(GuerriersBleus.size() > 0) {
+                g.attaquer(GuerriersBleus.get(0));
+                if (!GuerriersBleus.get(0).estVivant())
+                    GuerriersBleus.remove(0);
+            }
         }
     }
 
+    @Override
+    public String toString() {
+        String txt = "\n#\n";
+
+        // On met à l'envers pour un meilleur affichage: comme le guerrier à l'index 0 est le premier attaqué
+        // il est plus logique qu'il soit affiché en face du guerrier rouge directement
+        Collections.reverse(getGuerriersBleus());
+
+        for(Guerrier g : getGuerriersBleus()) {
+            txt += "# " + g + "\n";
+        }
+
+        // On remet l'ordre en place
+        Collections.reverse(getGuerriersBleus());
+
+        for(Guerrier g : getGuerriersRouges()) {
+            txt += "# " + g + "\n";
+        }
+
+        txt += "#\n";
+
+        return txt;
+    }
 }

@@ -31,6 +31,10 @@ public class Application {
             chateauRouge.incrementerRessources();
             chateauBleu.incrementerRessources();
 
+            plateau.lanceCombats();
+            plateau.deplaceGuerriers();
+
+
             System.out.println("Ressource chateau bleu : " + chateauBleu.getRessource());
             System.out.println("Ressource chateau rouge : " + chateauRouge.getRessource());
             System.out.println();
@@ -58,14 +62,13 @@ public class Application {
             // On ajoute les guerriers entrainés du chateau rouge
             plateau.ajoutGuerriers(chateauRouge, guerriersEntraines);
 
-            plateau.deplaceGuerriers();
-            plateau.lanceCombats();
-
-            tour++;
+            System.out.println(plateau);
 
             System.out.println();
             System.out.println("Appuyez sur une touche pour passer au tour suivant ! ");
             scanner.nextLine();
+
+            tour++;
 
         }
     }
