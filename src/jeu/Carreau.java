@@ -5,17 +5,22 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Classe représentant un carreau sur un plateau du jeu Faerun
+ */
 public class Carreau {
 
     ArrayList<Guerrier> GuerriersBleus;
     ArrayList<Guerrier> GuerriersRouges;
 
-    private Couleur couleur;
-
+    /**
+     * Création d'un carreau
+     */
     public Carreau() {
         GuerriersBleus = new ArrayList<>();
         GuerriersRouges = new ArrayList<>();
     }
+
 
     public ArrayList<Guerrier> getGuerriersBleus() {
         return GuerriersBleus;
@@ -25,10 +30,18 @@ public class Carreau {
         return GuerriersRouges;
     }
 
+    /**
+     * Ajoute un guerrier bleu sur le carreau
+     * @param guerriers guerrier à ajouter
+     */
     public void ajoutGuerriersBleus(ArrayList<Guerrier> guerriers) {
         GuerriersBleus.addAll(guerriers);
     }
 
+    /**
+     * Ajoute un guerrier rouge sur le carreau
+     * @param guerriers guerrier à ajouter
+     */
     public void ajoutGuerriersRouges(ArrayList<Guerrier> guerriers) {
         GuerriersRouges.addAll(guerriers);
     }
@@ -51,16 +64,28 @@ public class Carreau {
         }
     }
 
+    /**
+     * Vérifie si le carreau contient des guerriers rouge
+     * @return vrai si il y a des guerriers rouge sur le carreau
+     */
     public boolean estRouge() {
-        return couleur.getLibelle().equals("Rouge");
+        return GuerriersRouges.size() > 0;
     }
 
+    /**
+     * Vérifie si le carreau contient des guerriers bleus
+     * @return vrai si il y a des guerriers bleu sur le carreau
+     */
     public boolean estBleu() {
-        return couleur.getLibelle().equals("Bleu");
+        return GuerriersBleus.size() > 0;
     }
 
+    /**
+     * Vérifie si il y a à la fois des guerriers rouge et des guerriers bleu sur le carreau
+     * @return Vrai si il y a à la fois des guerriers rouge et bleu.
+     */
     public boolean estChampDeBataille() {
-        return GuerriersBleus.size() > 0 && GuerriersRouges.size() > 0;
+        return estRouge() & estBleu();
     }
 
     /**

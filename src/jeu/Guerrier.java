@@ -86,19 +86,30 @@ public abstract class Guerrier {
         vie -= degats;
     }
 
-
     public void setChateau(Chateau chateau) {
         this.chateau = chateau;
     }
 
+    /**
+     * Vérifie si le guerrier appartient au chateau bleu
+     * @return vrai si le guerrier appartient au chateau bleu
+     */
     public boolean estBleu() {
         return chateau.estBleu();
     }
 
+    /**
+     * Vérifie si le guerrier appartient au chateau rouge
+     * @return vrai si le guerrier appartient au chateau rouge
+     */
     public boolean estRouge() {
         return chateau.estRouge();
     }
 
+    /**
+     * Retourne le nombre de ressource nécessaire pour entraîner un guerrier
+     * @return nombre de ressource
+     */
     public int getRessourcesPourEntrainement() {
         return RESSOURCE_BASE;
     }

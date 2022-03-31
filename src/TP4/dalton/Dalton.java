@@ -2,6 +2,9 @@ package TP4.dalton;
 
 import java.util.Comparator;
 
+/**
+ *
+ */
 public class Dalton implements Comparable<Dalton> {
 
     private String nom;

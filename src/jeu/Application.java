@@ -12,9 +12,10 @@ public class Application {
         Chateau chateauRouge = new Chateau(new Couleur("Rouge"), plateau);
         Chateau chateauBleu = new Chateau(new Couleur("Bleu"), plateau);
 
-        chateauRouge.ajoutGuerrierNovice(new Elfe());
-        chateauRouge.ajoutGuerrierNovice(new Nain());
+        chateauRouge.ajoutGuerrierNovice(new ChefElfe());
         chateauRouge.ajoutGuerrierNovice(new ChefNain());
+        chateauRouge.ajoutGuerrierNovice(new ChefNain());
+        chateauRouge.ajoutGuerrierNovice(new Elfe());
 
         chateauBleu.ajoutGuerrierNovice(new ChefNain());
         chateauBleu.ajoutGuerrierNovice(new ChefElfe());
@@ -64,11 +65,23 @@ public class Application {
 
             System.out.println(plateau);
 
-            System.out.println();
-            System.out.println("Appuyez sur une touche pour passer au tour suivant ! ");
-            scanner.nextLine();
+            // On vérifie si un des joueurs a gagné : c'est à dire qu'il y a des ennemies sur la case départ.
+            if(plateau.getDepartRouge().estBleu()) {
+                System.out.println("Le joueur \u001b[0;36mbleu\u001b[0m a gagné !");
+                continuer = false;
+            }
+            else if(plateau.getDepartBleu().estRouge()) {
+                System.out.println("Le joueur \u001b[0;31mrouge\u001b[0m a gagné !");
+                continuer = false;
+            }
+            else {
 
-            tour++;
+                System.out.println();
+                System.out.println("Appuyez sur une touche pour passer au tour suivant ! ");
+                scanner.nextLine();
+
+                tour++;
+            }
 
         }
     }
