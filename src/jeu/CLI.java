@@ -12,6 +12,10 @@ public class CLI {
         System.out.println(attaquant + " attaque " + victime + " : -" + degats.getDegatSubit() + " PV");
     }
 
+    public static void coupDivin() {
+        System.out.println("Coup Divin !!!!!!!!");
+    }
+
 
 
 

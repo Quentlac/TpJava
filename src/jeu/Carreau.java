@@ -93,29 +93,38 @@ public class Carreau {
      */
     public void lanceCombat() {
 
-        // Les bleus attaquent
-        for(Guerrier g : GuerriersBleus) {
-            // On regarde si il y a encore des guerriers ennemis à combatre
-            if(GuerriersRouges.size() > 0) {
-                DegatsDonneSubit degats = g.attaquer(GuerriersRouges.get(0));
-                CLI.afficheCombat(g, GuerriersRouges.get(0), degats);
+        try {
+            // Les bleus attaquent
+            for (Guerrier g : GuerriersBleus) {
+                // On regarde si il y a encore des guerriers ennemis à combatre
+                if (GuerriersRouges.size() > 0) {
+                    DegatsDonneSubit degats = g.attaquer(GuerriersRouges.get(0));
+                    CLI.afficheCombat(g, GuerriersRouges.get(0), degats);
 
-                // Si le guerrier est mort on le supprime de la liste
-                if (!GuerriersRouges.get(0).estVivant())
-                    GuerriersRouges.remove(0);
+                    // Si le guerrier est mort on le supprime de la liste
+                    if (!GuerriersRouges.get(0).estVivant())
+                        GuerriersRouges.remove(0);
+                }
             }
         }
+        catch (CoupDivinException e) {
+            coupDivin(Couleur.Rouge); // Coup divin SUR les rouges
+        }
+        try {
+            // Les rouges attaquent
+            for(Guerrier g : GuerriersRouges) {
+                if(GuerriersBleus.size() > 0) {
 
-        // Les rouges attaquent
-        for(Guerrier g : GuerriersRouges) {
-            if(GuerriersBleus.size() > 0) {
+                    DegatsDonneSubit degats = g.attaquer(GuerriersBleus.get(0));
+                    CLI.afficheCombat(g, GuerriersBleus.get(0), degats);
 
-                DegatsDonneSubit degats = g.attaquer(GuerriersBleus.get(0));
-                CLI.afficheCombat(g, GuerriersBleus.get(0), degats);
-
-                if (!GuerriersBleus.get(0).estVivant())
-                    GuerriersBleus.remove(0);
+                    if (!GuerriersBleus.get(0).estVivant())
+                        GuerriersBleus.remove(0);
+                }
             }
+        }
+        catch (CoupDivinException e) {
+            coupDivin(Couleur.Bleu); // Coup divin SUR les bleus
         }
     }
 
@@ -141,5 +150,18 @@ public class Carreau {
         txt += "#\n";
 
         return txt;
+    }
+
+    /**
+     * Le coup divin permet d'élimminer tout les ennemis du carreau d'un seul coup
+     * @param couleur
+     */
+    private void coupDivin(Couleur couleur) {
+        if(couleur == Couleur.Bleu)
+            GuerriersBleus.clear();
+        else if(couleur == Couleur.Rouge)
+            GuerriersRouges.clear();
+
+        CLI.coupDivin();
     }
 }

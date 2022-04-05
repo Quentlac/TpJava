@@ -27,8 +27,8 @@ public class TestGuerrier {
 
             // Attaque du guerrier 1 sur le 2
             System.out.println("Attaque !");
-            System.out.println(g1.getClass().getSimpleName() + " inflige " + g1.attaquer(g2) + " dégats à " + g2.getClass().getSimpleName());
-            System.out.println(g2.getClass().getSimpleName() + " inflige " + g2.attaquer(g1) + " dégats à " + g1.getClass().getSimpleName());
+            //System.out.println(g1.getClass().getSimpleName() + " inflige " + g1.attaquer(g2) + " dégats à " + g2.getClass().getSimpleName());
+            //System.out.println(g2.getClass().getSimpleName() + " inflige " + g2.attaquer(g1) + " dégats à " + g1.getClass().getSimpleName());
 
             System.out.println("-------------------");
 

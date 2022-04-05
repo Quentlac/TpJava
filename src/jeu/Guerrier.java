@@ -66,12 +66,17 @@ public abstract class Guerrier {
      * @param ennemi Ennemi à attaquer
      * @return dégats infligés
      */
-    public DegatsDonneSubit attaquer(Guerrier ennemi) {
+    public DegatsDonneSubit attaquer(Guerrier ennemi) throws CoupDivinException {
 
         // Le guerrier ne peut attaquer que si il est vivant
         if(estVivant()) {
             //Calcul des dégats à infliger en fonction du résultat des dés.
-            int degats = GuerrierUtilitaire.de3(force);
+            int degats = GuerrierUtilitaire.de3(getForce());
+
+            if(degats > (0.8f * 3f * getForce())) {
+                throw new CoupDivinException();
+            }
+
             int subit = ennemi.subirDegats(degats);
             return new DegatsDonneSubit(subit, degats);
         }
