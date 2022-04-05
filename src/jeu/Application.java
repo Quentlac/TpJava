@@ -35,7 +35,7 @@ public class Application {
             plateau.lanceCombats();
             plateau.deplaceGuerriers();
 
-
+            System.out.println();
             System.out.println("Ressource chateau bleu : " + chateauBleu.getRessource());
             System.out.println("Ressource chateau rouge : " + chateauRouge.getRessource());
             System.out.println();

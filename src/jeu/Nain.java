@@ -11,7 +11,7 @@ public class Nain extends Guerrier{
      * @param degats Nombre de dégats subits
      */
     @Override
-    public void subirDegats(int degats) {
-        super.subirDegats(degats / 2);
+    public int subirDegats(int degats) {
+        return super.subirDegats(degats / 2);
     }
 }

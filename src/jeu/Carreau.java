@@ -97,7 +97,9 @@ public class Carreau {
         for(Guerrier g : GuerriersBleus) {
             // On regarde si il y a encore des guerriers ennemis à combatre
             if(GuerriersRouges.size() > 0) {
-                g.attaquer(GuerriersRouges.get(0));
+                DegatsDonneSubit degats = g.attaquer(GuerriersRouges.get(0));
+                CLI.afficheCombat(g, GuerriersRouges.get(0), degats);
+
                 // Si le guerrier est mort on le supprime de la liste
                 if (!GuerriersRouges.get(0).estVivant())
                     GuerriersRouges.remove(0);
@@ -107,7 +109,10 @@ public class Carreau {
         // Les rouges attaquent
         for(Guerrier g : GuerriersRouges) {
             if(GuerriersBleus.size() > 0) {
-                g.attaquer(GuerriersBleus.get(0));
+
+                DegatsDonneSubit degats = g.attaquer(GuerriersBleus.get(0));
+                CLI.afficheCombat(g, GuerriersBleus.get(0), degats);
+
                 if (!GuerriersBleus.get(0).estVivant())
                     GuerriersBleus.remove(0);
             }

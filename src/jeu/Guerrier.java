@@ -66,24 +66,26 @@ public abstract class Guerrier {
      * @param ennemi Ennemi à attaquer
      * @return dégats infligés
      */
-    public int attaquer(Guerrier ennemi) {
+    public DegatsDonneSubit attaquer(Guerrier ennemi) {
 
         // Le guerrier ne peut attaquer que si il est vivant
         if(estVivant()) {
             //Calcul des dégats à infliger en fonction du résultat des dés.
             int degats = GuerrierUtilitaire.de3(force);
-            ennemi.subirDegats(degats);
-            return degats;
+            int subit = ennemi.subirDegats(degats);
+            return new DegatsDonneSubit(subit, degats);
         }
-        return 0;
+        return null;
     }
 
     /**
      * Fait subir des dégats au guerrier
      * @param degats Nombre de dégats subits
+     * @return dégats subits
      */
-    public void subirDegats(int degats) {
+    public int subirDegats(int degats) {
         vie -= degats;
+        return degats;
     }
 
     public void setChateau(Chateau chateau) {
