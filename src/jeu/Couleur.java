@@ -1,10 +1,12 @@
 package jeu;
 
-public class Couleur {
+public enum Couleur {
+
+    Rouge("Rouge"), Bleu("Bleu");
 
     String libelle;
 
-    public Couleur(String libelle) {
+    private Couleur(String libelle) {
         this.libelle = libelle;
     }
 

@@ -13,4 +13,9 @@ public class ChefNain extends Nain{
     public int subirDegats(int degats) {
         return super.subirDegats(degats / 2);
     }
+
+    @Override
+    public int getRessourcesPourEntrainement() {
+        return 3;
+    }
 }

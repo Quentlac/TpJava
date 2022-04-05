@@ -30,10 +30,10 @@ public class Plateau {
     public void ajoutGuerriers(Chateau chateau, ArrayList<Guerrier> guerriers) {
 
         // On regarde quel chateau met les guerriers.
-        if(chateau.getCouleur().getLibelle().equals("Bleu")) {
+        if(chateau.getCouleur() == Couleur.Bleu) {
             getDepartBleu().ajoutGuerriersBleus(guerriers); // On place les guerriers sur la case de départ relative au chateau.
         }
-        else if(chateau.getCouleur().getLibelle().equals("Rouge")) {
+        else if(chateau.getCouleur() == Couleur.Rouge) {
             getDepartRouge().ajoutGuerriersRouges(guerriers);
         }
     }

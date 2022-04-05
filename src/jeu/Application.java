@@ -9,8 +9,8 @@ public class Application {
 
         Plateau plateau = new Plateau(5);
 
-        Chateau chateauRouge = new Chateau(new Couleur("Rouge"), plateau);
-        Chateau chateauBleu = new Chateau(new Couleur("Bleu"), plateau);
+        Chateau chateauRouge = new Chateau(Couleur.Rouge, plateau);
+        Chateau chateauBleu = new Chateau(Couleur.Bleu, plateau);
 
         chateauRouge.ajoutGuerrierNovice(new ChefElfe());
         chateauRouge.ajoutGuerrierNovice(new ChefNain());

@@ -15,4 +15,9 @@ public class ChefElfe extends Elfe{
     public int getForce() {
         return super.getForce() * 2;
     }
+
+    @Override
+    public int getRessourcesPourEntrainement() {
+        return 4;
+    }
 }

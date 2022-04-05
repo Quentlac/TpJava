@@ -16,6 +16,7 @@ public class Chateau {
         this.couleur = couleur;
         this.plateau = plateau;
         this.guerriersNovices = new ArrayList<>();
+        this.ressource = RESSOURCES_INITIAL;
     }
 
     /**
@@ -70,11 +71,11 @@ public class Chateau {
     }
 
     public boolean estBleu() {
-        return couleur.getLibelle().equals("Bleu");
+        return couleur == Couleur.Bleu;
     }
 
     public boolean estRouge() {
-        return couleur.getLibelle().equals("Rouge");
+        return couleur == Couleur.Rouge;
     }
 
 }

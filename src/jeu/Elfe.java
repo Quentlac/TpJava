@@ -14,4 +14,9 @@ public class Elfe extends Guerrier{
     public int getForce() {
         return super.getForce() * 2;
     }
+
+    @Override
+    public int getRessourcesPourEntrainement() {
+        return 2;
+    }
 }
