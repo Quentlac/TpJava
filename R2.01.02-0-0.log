@@ -1,0 +1,1 @@
+[2022-05-02T13:56:18.608198+02:00[Europe/Paris]] SEVERE     | (Logger) TP5.TestLogging main | Le message d'exception : java.lang.ArithmeticException: / by zero
